@@ -1,7 +1,7 @@
 ---
 # Brew packages
 - name: Install packages with brew
-  homebrew: name={{ items }} state=present
+  homebrew: name={{ item }} state=present
   with_items:
     - python
     - python3
@@ -28,7 +28,7 @@
 
 # Pip packages
 - name: Install pip packages
-  pip: name={{ items }} state=present extra_args='--upgrade --no-use-wheel'
+  pip: name={{ item }} state=present extra_args='--upgrade --no-use-wheel'
   with_items:
     - virtualenv
     - virtualenvwrapper

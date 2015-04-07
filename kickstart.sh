@@ -11,7 +11,7 @@ mkdir -p $PROJECT_HOME
 
 # Download and install Command Line Tools (fails if installed)
 echo "Info   | Install   | xcode"
-xcode-select --install
+xcode-select --install || true
 
 # Download and install Homebrew
 if [[ ! -x /usr/local/bin/brew ]]; then
