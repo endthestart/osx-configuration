@@ -1,0 +1,44 @@
+---
+# Brew packages
+- name: Install packages with brew
+  homebrew: name={{ items }} state=present
+  with_items:
+    - python
+    - python3
+    - git
+    - bash-completion
+    - ssh-copy-id
+    - wget
+
+# Copy ~/.bash_profile  
+- name: Copy bash_profile
+  template: src=bash_profile.j2
+        dest=~/.bash_profile
+        owner={{ username }} group={{ default_group }} mode=0644
+
+# Git configuration
+- name: Set git user email
+  command: git config --global user.email "{{ email }}"
+  
+- name: Set git user name
+  command: git config --global user.name "{{ name }}"
+  
+- name: Set git preferences
+  command: git config --global push.default simple
+
+# Pip packages
+- name: Install pip packages
+  pip: name={{ items }} state=present extra_args='--upgrade --no-use-wheel'
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+    - pip
+    - setuptools
+    
+# Copy ~/.bashrc
+- name: Copy bashrc
+  template: src=bashrc.j2
+        dest=~/.bashrc
+        owner={{ username }} group={{ default_group }} mode=0644
+
+

@@ -1,0 +1,12 @@
+---
+# This playbook configures a macbook for python development
+
+--
+
+- name: Configure software on os x
+  hosts: local
+  sudo: yes
+  sudo_user: andermic
+  
+  roles:
+    - devbox
