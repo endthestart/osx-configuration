@@ -19,6 +19,7 @@ cask_manifest:
 #  - microsoft-office
 # Social:
   - skype
+  - adium
 #  - google-hangouts
 #  - limechat
 # Browsers:
@@ -42,6 +43,9 @@ cask_manifest:
 #  - lastfm
 # Development
   - totalterminal
+  - virtualbox
+  - vagrant
+  - vagrant-manager
 #  - phpstorm
 #  - iterm2
 #  - sequel-pro
