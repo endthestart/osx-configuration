@@ -4,7 +4,7 @@
 - name: Configure software on os x
   hosts: local
   sudo: yes
-  sudo_user: andermic
+  sudo_user: manderson
   
   vars_files:
     - env_vars/base.yml

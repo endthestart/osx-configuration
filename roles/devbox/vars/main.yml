@@ -10,7 +10,7 @@ cask_manifest:
 #  - viscosity
 #  - omnigraffle
 #  - evernote
-#  - adobe-reader
+  - adobe-reader
   - calibre
 #  - cleanmymac
 #  - citrix-receiver
@@ -20,6 +20,7 @@ cask_manifest:
 # Social:
   - skype
   - adium
+  - slack
 #  - google-hangouts
 #  - limechat
 # Browsers:
@@ -46,6 +47,8 @@ cask_manifest:
   - virtualbox
   - vagrant
   - vagrant-manager
+  - packer
+  - sourcetree
 #  - phpstorm
 #  - iterm2
 #  - sequel-pro
