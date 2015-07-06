@@ -3,6 +3,7 @@
 
 - name: Configure software on os x
   hosts: local
+  connection: local
   sudo: yes
   sudo_user: manderson
   

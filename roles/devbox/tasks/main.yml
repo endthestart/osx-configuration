@@ -11,7 +11,7 @@
     - wget
     - mercurial
 
-# Copy ~/.bash_profile  
+# Copy ~/.bash_profile
 - name: Copy bash_profile
   template: src=bash_profile.j2
         dest=~/.bash_profile
@@ -20,10 +20,10 @@
 # Git configuration
 - name: Set git user email
   command: git config --global user.email "{{ email }}"
-  
+
 - name: Set git user name
   command: git config --global user.name "{{ name }}"
-  
+
 - name: Set git preferences
   command: git config --global push.default simple
 
@@ -35,13 +35,19 @@
     - virtualenvwrapper
     - pip
     - setuptools
-    
+
 # Copy ~/.bashrc
 - name: Copy bashrc
   template: src=bashrc.j2
         dest=~/.bashrc
         owner={{ username }} group={{ default_group }} mode=0644
-        
+
+- name: Assures ~/Library/KeyBindings directory exists
+  file: path=~/Library/KeyBindings state=directory
+
+- name: Copy Default Key Bindings
+  template: src=DefaultKeyBinding.dict.j2 dest=~/Library/KeyBindings/ owner={{ username }} group={{ default_group }} mode=0644
+
 - name: Install Homebrew Cask
   command: brew install caskroom/cask/brew-cask
   args:
@@ -53,7 +59,9 @@
   with_items: cask_manifest
 
 # Vagrant configuration
-- name: Install vagrant plugins
+- name: Install ansible-local vagrant plugin
   command: vagrant plugin install vagrant-ansible-local
 
+- name: Install hostsupdater vagrant plugin
+  command: vagrant plugin install vagrant-hostsupdater
 
